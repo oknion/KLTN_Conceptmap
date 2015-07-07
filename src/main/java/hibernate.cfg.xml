@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/springtilesopenshift
+</property>
+<property name="hibernate.connection.username">root</property>
+<property name="hibernate.connection.password">root</property>
+<property name="hibernate.connection.pool_size">10</property>
+<property name="show_sql">true</property>
+<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+<property name="hibernate.current_session_context_class">thread</property>
+<property name="hbm2ddl.auto">create</property>
+				<mapping class="com.oknion.conceptmap.Model.CcrelationshipPoints"/>		
+				<mapping class="com.oknion.conceptmap.Model.Ccrelationship" />
+				<mapping class="com.oknion.conceptmap.Model.Classes"/>
+				<mapping class="com.oknion.conceptmap.Model.Conceptmap"/>
+				<mapping class="com.oknion.conceptmap.Model.Concept"/> 
+				<mapping class="com.oknion.conceptmap.Model.Document"/>
+				<mapping class="com.oknion.conceptmap.Model.Error"/>
+				<mapping class="com.oknion.conceptmap.Model.Notification"/> 
+				<mapping class="com.oknion.conceptmap.Model.Task"/>
+				<mapping class="com.oknion.conceptmap.Model.User"/>
+				<mapping class="com.oknion.conceptmap.Model.Sharewith"/>
+	
+</session-factory>
+</hibernate-configuration>

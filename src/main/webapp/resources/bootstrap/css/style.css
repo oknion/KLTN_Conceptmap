@@ -1,0 +1,206 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
+
+#noti .notifications:after,
+#noti .notifications .notifications-list .item:before,
+#noti .notifications .notifications-list .item.no-data:before,
+#noti .notifications .notifications-list .item.expired:before
+ {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+ 
+  font-family: 'Lato';
+
+}
+#noti .button-default {
+  -webkit-transition: 0.25s ease-out 0.1s color;
+  -moz-transition: 0.25s ease-out 0.1s color;
+  -o-transition: 0.25s ease-out 0.1s color;
+  transition: 0.25s ease-out 0.1s color;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  outline: none;
+  position: relative;
+}
+#noti .show-notifications {
+  position: relative;
+}
+#noti .show-notifications:hover #icon-bell,
+#noti .show-notifications:focus #icon-bell,
+#noti .show-notifications.active #icon-bell {
+  fill: #34495e;
+}
+#noti .show-notifications #icon-bell {
+  fill: #7f8c8d;
+}
+#noti .show-notifications .notifications-count {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: #3498db;
+  color: #fefefe;
+  font: normal 0.85em 'Lato';
+  height: 16px;
+  line-height: 1.75em;
+  position: absolute;
+  right: 2px;
+  text-align: center;
+  top: -2px;
+  width: 16px;
+}
+#noti .show-notifications.active ~ .notifications {
+  opacity: 1;
+  top: 60px;
+}
+#noti .notifications {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: 0.25s ease-out 0.1s opacity;
+  -moz-transition: 0.25s ease-out 0.1s opacity;
+  -o-transition: 0.25s ease-out 0.1s opacity;
+  transition: 0.25s ease-out 0.1s opacity;
+  background: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  right: 2px;
+  opacity: 0;
+  position: absolute;
+  top: -999px;
+  z-index:9;
+}
+#noti .notifications:after {
+  border: 10px solid transparent;
+  border-bottom-color: #3498db;
+  content: '';
+  display: block;
+  height: 0;
+  right: 10px;
+  position: absolute;
+  top: -20px;
+  width: 0;
+}
+#noti .notifications h3,
+#noti .notifications .show-all {
+  background: #3498db;
+  color: #fefefe;
+  margin: 0;
+  padding: 10px;
+  width: 350px;
+}
+#noti .notifications h3 {
+  cursor: default;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+#noti .notifications .show-all {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+#noti .notifications .show-all:hover,
+#noti .notifications .show-all:focus {
+  text-decoration: underline;
+}
+#noti .notifications .notifications-list {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+#noti .notifications .notifications-list .item {
+  -webkit-transition: -webkit-transform 0.25s ease-out 0.1s;
+  -moz-transition: -moz-transform 0.25s ease-out 0.1s;
+  -o-transition: -o-transform 0.25s ease-out 0.1s;
+  transition: transform 0.25s ease-out 0.1s;
+  border-top: 1px solid #bdc3c7;
+  color: #FFFFF;
+  cursor: default;
+  display: block;
+  padding: 10px;
+  position: relative;
+  white-space: nowrap;
+  width: 350px;
+}
+#noti .notifications .notifications-list .item:before,
+#noti .notifications .notifications-list .item .details,
+#noti .notifications .notifications-list .item .button-dismiss {
+  display: inline-block;
+  vertical-align: middle;
+}
+#noti .notifications .notifications-list .item:before {
+  -moz-border-radius: 30%;
+  -webkit-border-radius: 30%;
+  border-radius: 30%;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: #3498db;
+  content: '';
+  height: 8px;
+  width: 8px;
+}
+#noti .notifications .notifications-list .item .details {
+  margin-left: 10px;
+  white-space: normal;
+  width: 280px;
+  color: black;
+}
+#noti .notifications .notifications-list .item .details .title,
+#noti .notifications .notifications-list .item .details .date {
+  display: block;
+}
+#noti .notifications .notifications-list .item .details .date {
+  color: #FFFFF;
+  font-size: .85em;
+  margin-top: 3px;
+  
+}
+#noti .notifications .notifications-list .item .button-dismiss {
+  color: #bdc3c7;
+  font-size: 2.25em;
+}
+#noti .notifications .notifications-list .item .button-dismiss:hover,
+#noti .notifications .notifications-list .item .button-dismiss:focus {
+  color: #95a5a6;
+}
+#noti .notifications .notifications-list .item.no-data {
+  display: none;
+  text-align: center;
+}
+#noti .notifications .notifications-list .item.no-data:before {
+  display: none;
+}
+#noti .notifications .notifications-list .item.expired {
+  color: #bdc3c7;
+}
+#noti .notifications .notifications-list .item.expired:before {
+  back
+  ground: #bdc3c7;
+}
+#noti .notifications .notifications-list .item.expired .details .date {
+  color: #bdc3c7;
+}
+#noti .notifications .notifications-list .item.dismissed {
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+}
+#noti .notifications.empty .notifications-list .no-data {
+  display: block;
+  padding: 10px;
+}
+/* variables */
+/* mixins */

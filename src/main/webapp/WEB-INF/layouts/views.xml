@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>	
+	
+	<!-- Login -->	
+	<definition name="login" extends="LoginTemplate" >
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp"/>
+	</definition>
+	<!-- Register -->	
+	<definition name="register" extends="LoginTemplate" >
+		<put-attribute name="body" value="/WEB-INF/views/register.jsp"/>
+	</definition>
+	<definition name="registerFromFacebook" extends="LoginTemplate" >
+		<put-attribute name="body" value="/WEB-INF/views/registerfb.jsp"/>
+	</definition>
+	
+	<!-- Common -->
+	<definition name="fileManager1" extends="LoginTemplate" >
+		<put-attribute name="body" value="/WEB-INF/views/register.jsp"/>
+	</definition>
+	<definition name="fileManager" extends="DefaultTemplate">
+		 <put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />	
+	    <put-attribute name="body"	value="/WEB-INF/views/Common/FileUploadManager.jsp" />
+	</definition>
+	<definition name="friends" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Common/Friends.jsp" />
+	</definition>
+	<definition name="accountInfo" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Common/accountInfo.jsp" />
+	</definition>
+	<definition name="changePass" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Common/changePass.jsp" />
+	</definition>
+	<!-- Student View -->
+	<definition name="shareDetail" extends="ListDetailTemplate">
+		<put-attribute name="body" value="/WEB-INF/views/Student/shareDetail.jsp"></put-attribute>
+	
+	</definition>
+	<definition name="listmapStudent" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Student/listmap.jsp" />
+	</definition>
+	<definition name="listshare" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Student/listshare.jsp" />
+	</definition>
+	<definition name="listmapDetail" extends="ListDetailTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+		<put-attribute name="body" value="/WEB-INF/views/Student/listmapoutside.jsp"/>
+	</definition>
+	<definition name="indexStudent" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Student/createCmStudent.jsp" />
+	    <put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />
+	</definition>	
+	<definition name="listtaskStudent" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Student/listtask.jsp" />
+	</definition>
+	
+	<!-- Teacher View -->
+	<definition name="report" extends="reportTemplate">
+	
+	</definition>
+	<definition name="article" extends="calendarTemplate">
+	<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />	
+	</definition>	
+	<definition name="listmapTeacher" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Teacher/listmap.jsp" />
+	</definition>	
+	<definition name="indexTeacher" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Teacher/createCm.jsp" />
+	    <put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />
+	</definition>	
+	<definition name="listtaskTeacher" extends="DefaultTemplate">
+		<put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />		
+	    <put-attribute name="body"	value="/WEB-INF/views/Teacher/listtask.jsp" />
+	</definition>
+	<!-- Admin View -->
+	<definition name="indexAdmin" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Admin/accountMng.jsp" />
+	    <put-attribute name="header" 	value="/WEB-INF/views/template/adminHeader.jsp" />
+	</definition>
+	<definition name="indexAddAccount" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/views/Admin/addAccount.jsp" />
+	    <put-attribute name="header" 	value="/WEB-INF/views/template/adminHeader.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="reportTemplate" template="/WEB-INF/views/Teacher/report.jsp">
+		
+	</definition>
+	
+	<definition name="calendarTemplate" template="/WEB-INF/views/template/calendarTemplate.jsp">
+		<put-attribute name="header" 	value="" />		
+		<put-attribute name="footer" 	value="" />
+	</definition>
+    <definition name="DefaultTemplate" template="/WEB-INF/views/template/SiteTemplate.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="" />		
+		<put-attribute name="body" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	<definition name="ListDetailTemplate" template = "/WEB-INF/views/template/ListDetailTemplate.jsp">
+		<put-attribute name="body" value=""/>
+	</definition>
+	<definition name="LoginTemplate" template="/WEB-INF/views/template/LoginTemplate.jsp">
+		<put-attribute name="body" value=""/>
+		<put-attribute name="footer" 	value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+ <beans xmlns="http://www.springframework.org/schema/beans"   
+    xmlns:context="http://www.springframework.org/schema/context"   
+    xmlns:mvc="http://www.springframework.org/schema/mvc"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:security="http://www.springframework.org/schema/security"   
+    xsi:schemaLocation="http://www.springframework.org/schema/mvc   
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">   
+      <security:http auto-config="true">  
+           <security:intercept-url pattern="/listshare" access="ROLE_STUDENT,ROLE_TEACHER"/> 
+         
+           <security:intercept-url pattern="/listmap" access="ROLE_TEACHER,ROLE_STUDENT,ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/makeTask" access="ROLE_TEACHER"/> 
+           <security:intercept-url pattern="/create" access="ROLE_TEACHER,ROLE_STUDENT,ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/dotask*" access="ROLE_STUDENT"/>
+           <security:intercept-url pattern="/listshareDetail/*" access="ROLE_STUDENT,ROLE_TEACHER"/> 
+           <security:intercept-url pattern="/listtask" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/accountInfo" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/changePass" access="ROLE_STUDENT,ROLE_TEACHER,ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/listmapDetail/*" access="ROLE_STUDENT"/> 
+           <security:intercept-url pattern="/indexAddAccount" access="ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/indexAdmin" access="ROLE_ADMIN"/> 
+           <security:intercept-url pattern="/getError/*" access="ROLE_STUDENT"/> 
+           <security:intercept-url pattern="/gojspost" access="ROLE_STUDENT,ROLE_TEACHER"/> 
+            <security:intercept-url pattern="/getcm" access="ROLE_STUDENT,ROLE_TEACHER"/>
+            
+           
+           <security:form-login login-page="/login"  
+           							default-target-url="/listmap" 
+                                    authentication-failure-url="/login?error=true"   
+                                    username-parameter="username" 
+                                    password-parameter="password"/>
+           
+           <security:logout logout-url="/logout" logout-success-url="/login"/>
+           <security:remember-me key="remember-oknion"/> 
+          
+      </security:http>      
+
+       <security:authentication-manager alias="authenticationManager">  
+           <security:authentication-provider user-service-ref="myUserDetailsService"/>  
+      		
+      </security:authentication-manager>  
+      
+ 	
+
+ </beans>   

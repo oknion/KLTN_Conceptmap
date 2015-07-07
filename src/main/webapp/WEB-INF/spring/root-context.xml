@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+<!-- <property name="url"
+			value="jdbc:mysql://127.6.201.2:3306/springtilesopenshift" />
+		<property name="username" value="adminB5JeJ59" />
+		<property name="password" value="DXQUr86RG8H3" />-->
+		  
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/springtilesopenshift" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />  
+		
+	</bean>
+
+	<!-- Hibernate 4 SessionFactory Bean definition -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.oknion.conceptmap.Model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop>			
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />	
+
+	 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+	 	<property name="maxUploadSize" value="100000000" /> 
+    </bean>
+	
+	
+	<bean id="myUserDetailsService" class="com.oknion.conceptmap.services.MyUserDetailsService">
+		<property name="userDao" ref="userDao" />
+	</bean>	
+	
+	
+	  <!--<bean id="hibernateSessionRequestFilter" class="com.oknion.conceptmap.DAO.HibernateSessionRequestFilter">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	User beans --> 
+	<bean id="calendarDao" class="com.oknion.conceptmap.DAO.CalendarDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="calendarService" class="com.oknion.conceptmap.services.CalendarServiceImpl">
+		<property name="calendarDAO" ref="calendarDao"></property>
+	</bean>	
+       
+    
+	<bean id="userDao" class="com.oknion.conceptmap.DAO.UserDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="userService" class="com.oknion.conceptmap.services.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>	
+	 <!-- Conceptmap beans --> 
+    <bean id="conceptMapDao" class="com.oknion.conceptmap.DAO.ConceptMapDAOImpl">
+    	<property name="sessionFactory" ref="sessionFactory"/>       
+    </bean>
+    <bean id="conceptMapService" class="com.oknion.conceptmap.services.ConceptMapServiceImpl" > 
+    	<property name="conceptMapDao" ref="conceptMapDao"/>	
+    </bean>  
+    <!--  Document beans -->
+     <bean id="documentDao" class="com.oknion.conceptmap.DAO.DocumentDAOImpl"  >
+     	<property name="sessionFactory" ref="sessionFactory" />      
+    </bean>
+    <bean id="documentService" class="com.oknion.conceptmap.services.DocumentServiceImpl" >
+    	<property name="documentDao" ref="documentDao"/>
+    	<property name="conceptMapDao" ref="conceptMapDao"></property>
+    </bean> 
+      <!-- Share beans -->
+     <bean id="shareWithDao" class="com.oknion.conceptmap.DAO.ShareWithDAOImpl" >
+     	<property name="sessionFactory" ref="sessionFactory" />      
+    </bean>
+    <bean id="shareWithService" class="com.oknion.conceptmap.services.ShareWithServiceImpl" >
+    	<property name="userDao" ref="userDao" />
+    	<property name="conceptMapService" ref="conceptMapService" />
+    	<property name="shareWithDao" ref="shareWithDao" />	
+    </bean>   	
+      <!-- Task beans -->
+    <bean id="taskDao" class="com.oknion.conceptmap.DAO.TaskDAOImpl">
+    	<property name="sessionFactory" ref="sessionFactory" />      
+    </bean>
+    <bean id="taskService" class="com.oknion.conceptmap.services.TaskServiceImpl">
+    	<property name="conceptMapService" ref="conceptMapService" />      
+    	<property name="userDao" ref="userDao" />      
+    	<property name="taskDao" ref="taskDao" />      
+    </bean>
+	
+	
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />		
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

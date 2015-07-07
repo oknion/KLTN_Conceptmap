@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=556585ca4382ecbc500000a5
+org.jboss.tools.openshift.ApplicationName=springtilesopenshift
+org.jboss.tools.openshift.Connection=https\://oknion%40gmail.com@
+org.jboss.tools.openshift.DeployFolder=webapps
+org.jboss.tools.openshift.Domain=conceptmapjwd
+org.jboss.tools.openshift.RemoteName=openshift
